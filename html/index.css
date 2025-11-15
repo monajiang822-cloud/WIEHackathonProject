@@ -1,3 +1,17 @@
 h1 {
     color: blue;
 }
+
+nav {
+    background-color: #1d7744;
+    
+}
+.nav-link {
+    color:white;
+}
+.nav-link:hover {
+    color: lightgreen;
+}
+.nav-link.active {
+    color: rgb(202, 163, 248) !important;
+}
