@@ -87,6 +87,67 @@
 
     <h1>Workout</h1>
 
+    <div class="container d-flex flex-row">
+      <div class="row">
+        <form action="" class="col-7 m-2">
+          <div class="row g-2">
+            <label for="burn-goal">Calorie Burn Goal: </label>
+            <select
+              name="burn-goal"
+              class="form-select"
+              aria-label="Select from below"
+            >
+              <option selected>--select--</option>
+              <option value="genFromRecipe">Generate From Recipe</option>
+              <option value="custom">Custom</option>
+            </select>
+            <label for="workouttype">Type of Workout: </label>
+            <select
+              name="workouttype"
+              class="form-select"
+              aria-label="Select from below"
+            >
+              <option selected>--select--</option>
+              <option value="HIIT">HIIT</option>
+              <option value="LowIntes">Low Intensity</option>
+              <option value="Nature">Nature</option>
+              <option value="Dance">Dance</option>
+              <option value="UpBody">Upper Body</option>
+              <option value="LowBody">LowerBody</option>
+              <option value="pilates">Pilates</option>
+              <option value="Reccomended">Reccomended</option>
+              <option value="Custom">Custom</option>
+            </select>
+
+            <label for="difficulty">Difficulty: </label>
+            <select
+              name="difficulty"
+              class="form-select"
+              aria-label="Select from below"
+            >
+              <option selected>--select--</option>
+              <option value="Low">Low</option>
+              <option value="Med">Med</option>
+              <option value="High">High</option>
+            </select>
+
+            <label for="time">Timer: </label>
+            <input type="time" name="time" />
+          </div>
+        </form>
+        <div class="col m-2">
+          <div class="d-flex flex-row">
+            <h3 class="mx-1">Workout</h3>
+            <button class="mx-1 btn btn-primary">Download</button>
+            <button class="mx-1 btn btn-primary">
+              Generate Another Recipe
+            </button>
+          </div>
+          <div class="workout-result"></div>
+        </div>
+      </div>
+    </div>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
