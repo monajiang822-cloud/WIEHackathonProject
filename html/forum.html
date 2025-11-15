@@ -29,21 +29,22 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link" href="index.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="recipies.html">Recipies</a>
+              <a class="nav-link active" aria-current="page" href="#"
+                >Recipies</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="workout.html">Workouts</a>
+              <a class="nav-link" href="workout.html">Calories Counter</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="forum.html">Forum</a>
+              <a class="nav-link" href="#">Forum</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Login</a>
             </li>
-            
             <!--
             <li class="nav-item dropdown">
               <a
@@ -84,31 +85,32 @@
       </div>
     </nav>
     <div class="container-fluid w-100 bg-primary p-0">
-      <img src="../banner.png" alt="Banner" class="img-fluid" />
+      <img src="recipe.png" alt="Banner" class="img-fluid" />
     </div>
 
-    <h1>Welcome to Diet Buddy</h1>
-    <h2>Please input your info for a demo!</h2>
-    <div class="container">
-      <form action="" class="d-flex flex-column">
-        <div class="row g-2">
-          <label for="Name">Full Name: </label>
-          <input type="text" name="Name" />
-          <label for="gender">Gender: </label>
-          <input type="text" name="gender" />
-          <label for="age">Age: </label>
-          <input type="text" name="age" />
-          <label for="height">Height: </label>
-          <input type="text" name="height" />
-          <label for="weight">Weight: </label>
-          <input type="text" name="weight" />
-          <label for="issues">Medical Issues: </label>
-          <input type="text" name="issues" />
+    <h1>Recipies</h1>
 
-          <a href="recipies.html" class="btn btn-primary">Generate Recipies</a>
-          <a href="workout.html" class="btn btn-primary">Generate Workouts</a>
+    <div class="container d-flex flex-row">
+      <form action="" class="w-50 m-2">
+        <div class="row g-2">
+          <label for="restric">Dietary Restrictions: </label>
+          <input type="text" name="restric" />
+          <label for="fridge">Ingredients: </label>
+          <input type="text" name="fridge" />
+          <label for="genre">Genre: </label>
+          <input type="text" name="genre" />
+          <label for="servigns"># of Servings: </label>
+          <input type="number" name="servings" min="0" />
         </div>
       </form>
+      <div class="m-2">
+        <div class="d-flex flex-row">
+          <h3 class="mx-1">Recipe</h3>
+          <button class="mx-1 btn btn-primary">Download</button>
+          <button class="mx-1 btn btn-primary">Generate Another Recipe</button>
+        </div>
+        <div class="recipe-result"></div>
+      </div>
     </div>
 
     <script
