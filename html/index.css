@@ -61,3 +61,13 @@ form {
     border-color: #4A90E2;
   }
   
+
+  #foodChart {
+    width: 300px !important;
+    height: 300px !important;
+  }
+
+  #calChart {
+    width: 300px !important;
+    height: 300px !important;
+  }
