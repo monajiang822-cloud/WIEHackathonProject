@@ -1,7 +1,6 @@
 h1 {
     color: blue;
 }
-
 nav {
     background-color: #1d7744;
     
@@ -15,3 +14,7 @@ nav {
 .nav-link.active {
     color: rgb(202, 163, 248) !important;
 }
+body {
+    background-color: rgb(224, 251, 224);
+  }
+
