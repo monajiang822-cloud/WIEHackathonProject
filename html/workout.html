@@ -98,6 +98,7 @@
           <div class="row g-2">
             <label for="burn-goal">Calorie Burn Goal: </label>
             <select
+              id="burn-goal"
               name="burn-goal"
               class="form-select"
               aria-label="Select from below"
@@ -106,6 +107,55 @@
               <option value="genFromRecipe">Generate From Recipe</option>
               <option value="custom">Custom</option>
             </select>
+
+            <div id="recipeInputs" style="display: none; margin-top: 10px">
+              <label>Recipe Name:</label>
+              <select
+                id="recipeInputsSelect"
+                name="recipeInputsSelect"
+                class="form-select"
+                aria-label="Select from below"
+              >
+                <option selected>--select--</option>
+                <option value="Lasangna">Lasangna</option>
+                <option value="Burrito">Burrito</option>
+                <option value="Pizza">Pizza</option>
+              </select>
+            </div>
+
+            <!-- Input group for Custom -->
+            <div id="customInputs" style="display: none; margin-top: 10px">
+              <label>Enter Calories:</label>
+              <input
+                type="number"
+                class="form-control"
+                placeholder="e.g. 350"
+              />
+            </div>
+
+            <script>
+              document
+                .getElementById("burn-goal")
+                .addEventListener("change", async function () {
+                  const value = this.value;
+
+                  // Hide everything first
+                  document.getElementById("recipeInputs").style.display =
+                    "none";
+                  document.getElementById("customInputs").style.display =
+                    "none";
+
+                  // Show based on selection
+                  if (value === "genFromRecipe") {
+                    document.getElementById("recipeInputs").style.display =
+                      "flex";
+                  } else if (value === "custom") {
+                    document.getElementById("customInputs").style.display =
+                      "flex";
+                  }
+                });
+            </script>
+
             <label for="workouttype">Type of Workout: </label>
             <select
               name="workouttype"
