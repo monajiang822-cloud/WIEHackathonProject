@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>Diet Buddy - Workouts</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
@@ -47,30 +48,6 @@
             <li class="nav-item">
               <a class="nav-link" href="login.html">Login</a>
             </li>
-            <!--
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Dropdown
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider" /></li>
-                <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-            </li>
-        -->
           </ul>
           <form class="d-flex" role="search">
             <input
@@ -79,135 +56,138 @@
               placeholder="Search"
               aria-label="Search"
             />
-            <button class="btn btn-outline-success" type="submit">
-              Search
-            </button>
+            <button class="btn btn-light" type="submit">Search</button>
           </form>
         </div>
       </div>
     </nav>
     <div class="container-fluid w-100 bg-primary p-0">
-      <img src="assets/workout.png" alt="Banner" class="img-fluid" />
+      <img
+        src="assets/workout.png"
+        alt="Workout Banner - Find the perfect workout"
+        class="img-fluid"
+      />
     </div>
 
-    <h1>Workout</h1>
+    <main>
+      <h1>Workout</h1>
 
-    <div class="container d-flex flex-row">
-      <div class="row">
-        <form action="" class="col-7 m-2">
-          <div class="row g-2">
-            <label for="burn-goal">Calorie Burn Goal: </label>
-            <select
-              id="burn-goal"
-              name="burn-goal"
-              class="form-select"
-              aria-label="Select from below"
-            >
-              <option selected>--select--</option>
-              <option value="genFromRecipe">Generate From Recipe</option>
-              <option value="custom">Custom</option>
-            </select>
-
-            <div id="recipeInputs" style="display: none; margin-top: 10px">
-              <label>Recipe Name:</label>
+      <div class="container d-flex flex-row">
+        <div class="row">
+          <form action="" class="col-7 m-2">
+            <div class="row g-2">
+              <label for="burn-goal">Calorie Burn Goal: </label>
               <select
-                id="recipeInputsSelect"
-                name="recipeInputsSelect"
+                id="burn-goal"
+                name="burn-goal"
                 class="form-select"
                 aria-label="Select from below"
               >
                 <option selected>--select--</option>
-                <option value="Lasangna">Lasangna</option>
-                <option value="Burrito">Burrito</option>
-                <option value="Pizza">Pizza</option>
+                <option value="genFromRecipe">Generate From Recipe</option>
+                <option value="custom">Custom</option>
               </select>
-            </div>
 
-            <!-- Input group for Custom -->
-            <div id="customInputs" style="display: none; margin-top: 10px">
-              <label>Enter Calories:</label>
+              <div id="recipeInputs" style="display: none; margin-top: 10px">
+                <label>Recipe Name:</label>
+                <select
+                  id="recipeInputsSelect"
+                  name="recipeInputsSelect"
+                  class="form-select"
+                  aria-label="Select from below"
+                >
+                  <option selected>--select--</option>
+                  <option value="Lasangna">Lasangna</option>
+                  <option value="Burrito">Burrito</option>
+                  <option value="Pizza">Pizza</option>
+                </select>
+              </div>
+
+              <!-- Input group for Custom -->
+              <div id="customInputs" style="display: none; margin-top: 10px">
+                <label>Enter Calories:</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="e.g. 350"
+                />
+              </div>
+
+              <script>
+                document
+                  .getElementById("burn-goal")
+                  .addEventListener("change", async function () {
+                    const value = this.value;
+
+                    // Hide everything first
+                    document.getElementById("recipeInputs").style.display =
+                      "none";
+                    document.getElementById("customInputs").style.display =
+                      "none";
+
+                    // Show based on selection
+                    if (value === "genFromRecipe") {
+                      document.getElementById("recipeInputs").style.display =
+                        "flex";
+                    } else if (value === "custom") {
+                      document.getElementById("customInputs").style.display =
+                        "flex";
+                    }
+                  });
+              </script>
+
+              <label for="workouttype">Type of Workout: </label>
+              <select
+                name="workouttype"
+                class="form-select"
+                aria-label="Select from below"
+              >
+                <option selected>--select--</option>
+                <option value="HIIT">HIIT</option>
+                <option value="LowIntes">Low Intensity</option>
+                <option value="Nature">Nature</option>
+                <option value="Dance">Dance</option>
+                <option value="UpBody">Upper Body</option>
+                <option value="LowBody">LowerBody</option>
+                <option value="pilates">Pilates</option>
+                <option value="Reccomended">Reccomended</option>
+                <option value="Custom">Custom</option>
+              </select>
+
+              <label for="difficulty">Difficulty: </label>
+              <select
+                name="difficulty"
+                class="form-select"
+                aria-label="Select from below"
+              >
+                <option selected>--select--</option>
+                <option value="Low">Low</option>
+                <option value="Med">Med</option>
+                <option value="High">High</option>
+              </select>
+
+              <label for="time">Timer: </label>
               <input
-                type="number"
-                class="form-control"
-                placeholder="e.g. 350"
+                type="text"
+                name="time"
+                pattern="[0-9]{1,2}:[0-9]{2}"
+                placeholder="eg. mm:ss"
               />
             </div>
-
-            <script>
-              document
-                .getElementById("burn-goal")
-                .addEventListener("change", async function () {
-                  const value = this.value;
-
-                  // Hide everything first
-                  document.getElementById("recipeInputs").style.display =
-                    "none";
-                  document.getElementById("customInputs").style.display =
-                    "none";
-
-                  // Show based on selection
-                  if (value === "genFromRecipe") {
-                    document.getElementById("recipeInputs").style.display =
-                      "flex";
-                  } else if (value === "custom") {
-                    document.getElementById("customInputs").style.display =
-                      "flex";
-                  }
-                });
-            </script>
-
-            <label for="workouttype">Type of Workout: </label>
-            <select
-              name="workouttype"
-              class="form-select"
-              aria-label="Select from below"
-            >
-              <option selected>--select--</option>
-              <option value="HIIT">HIIT</option>
-              <option value="LowIntes">Low Intensity</option>
-              <option value="Nature">Nature</option>
-              <option value="Dance">Dance</option>
-              <option value="UpBody">Upper Body</option>
-              <option value="LowBody">LowerBody</option>
-              <option value="pilates">Pilates</option>
-              <option value="Reccomended">Reccomended</option>
-              <option value="Custom">Custom</option>
-            </select>
-
-            <label for="difficulty">Difficulty: </label>
-            <select
-              name="difficulty"
-              class="form-select"
-              aria-label="Select from below"
-            >
-              <option selected>--select--</option>
-              <option value="Low">Low</option>
-              <option value="Med">Med</option>
-              <option value="High">High</option>
-            </select>
-
-            <label for="time">Timer: </label>
-            <input
-              type="text"
-              name="time"
-              pattern="[0-9]{1,2}:[0-9]{2}"
-              placeholder="eg. mm:ss"
-            />
+          </form>
+          <div class="col m-2">
+            <div class="d-flex flex-row">
+              <h3 class="mx-1">Workout</h3>
+              <button class="mx-1 btn btn-success">Download</button>
+              <button class="mx-1 btn btn-success">
+                Generate Another Workout
+              </button>
+            </div>
+            <div class="workout-result"></div>
           </div>
-        </form>
-        <div class="col m-2">
-          <div class="d-flex flex-row">
-            <h3 class="mx-1">Workout</h3>
-            <button class="mx-1 btn btn-success">Download</button>
-            <button class="mx-1 btn btn-success">
-              Generate Another Workout
-            </button>
-          </div>
-          <div class="workout-result"></div>
         </div>
       </div>
-    </div>
-
+    </main>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"

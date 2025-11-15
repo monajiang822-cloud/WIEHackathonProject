@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>Diet Buddy - Profile</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
@@ -15,8 +16,9 @@
   <body>
     <nav class="navbar navbar-expand-lg bg-body-primary">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img src="assets/logo.png" alt="Logo of Diet Buddy"
-          /></a>
+        <a class="navbar-brand" href="#"
+          ><img src="assets/logo.png" alt="Logo of Diet Buddy"
+        /></a>
         <button
           class="navbar-toggler"
           type="button"
@@ -45,30 +47,6 @@
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#">Login</a>
             </li>
-            <!--
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Dropdown
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider" /></li>
-                <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-            </li>
-        -->
           </ul>
           <form class="d-flex" role="search">
             <input
@@ -77,355 +55,363 @@
               placeholder="Search"
               aria-label="Search"
             />
-            <button class="btn btn-outline-success" type="submit">
-              Search
-            </button>
+            <button class="btn btn-light" type="submit">Search</button>
           </form>
         </div>
       </div>
     </nav>
+
     <div class="container-fluid w-100 bg-primary p-0">
-      <img src="assets/profile.png" alt="Profile" class="img-fluid" />
+      <img
+        src="assets/profile.png"
+        alt="Profile Banner - View your progress"
+        class="img-fluid"
+      />
     </div>
+    <main>
+      <h2>Profile</h2>
+      <div class="container">
+        <div class="row mb-3"><h3>Your Journey So Far ...</h3></div>
+        <div class="row mb-3 g-3">
+          <div class="col-md-6">
+            <h4>Calories Consumed</h4>
+            <canvas id="consumedChart" class="w-100"></canvas>
 
-    <h2>Profile</h2>
-    <div class="container">
-      <div class="row mb-3"><h3>Your Journey So Far ...</h3></div>
-      <div class="row mb-3 g-3">
-        <div class="col-md-6">
-          <h4>Calories Consumed</h4>
-          <canvas id="consumedChart" class="w-100"></canvas>
-
-          <script>
-            const ctx = document
-              .getElementById("consumedChart")
-              .getContext("2d");
-            const myChart = new Chart(ctx, {
-              type: "line", // Type of chart
-              data: {
-                labels: [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday",
-                ],
-                datasets: [
-                  {
-                    label: "Calories Consumed per day",
-                    data: [1200, 1900, 300, 500, 200],
-                    borderWidth: 1,
-                    borderColor: "rgb(40, 156, 5)",
-                  },
-                ],
-              },
-              options: {
-                scales: {
-                  y: {
-                    beginAtZero: true,
-                    title: {
-                      display: true,
-                      text: "Calories Gained",
-                    },
-                  },
-                },
-              },
-            });
-          </script>
-        </div>
-
-        <div class="col-md-6">
-          <h4>Calories Burned</h4>
-          <canvas id="burnedChart" class="w-100"></canvas>
-
-          <script>
-            const ctx2 = document
-              .getElementById("burnedChart")
-              .getContext("2d");
-            const myChart2 = new Chart(ctx2, {
-              type: "line", // Type of chart
-              data: {
-                labels: [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday",
-                ],
-                datasets: [
-                  {
-                    label: "Calories Consumed per day",
-                    data: [800, 100, 1700, 1500, 1800],
-                    borderWidth: 1,
-                    borderColor: "rgb(255, 0, 0)",
-                  },
-                ],
-              },
-              options: {
-                scales: {
-                  y: {
-                    beginAtZero: true,
-                    title: {
-                      display: true,
-                      text: "Calories Burned",
-                    },
-                  },
-                },
-              },
-            });
-          </script>
-        </div>
-      </div>
-      <div class="row mb-3 g-3">
-        <div class="col-md-6">
-          <h4>Vitamin Levels</h4>
-          <canvas id="vitaminChart" class="w-100"></canvas>
-
-          <script>
-            const ctx3 = document
-              .getElementById("vitaminChart")
-              .getContext("2d");
-
-            // Example data
-            const vitaminData = {
-              labels: [
-                "Vitamin A",
-                "Vitamin C",
-                "Vitamin D",
-                "Vitamin E",
-                "Vitamin K",
-                "Vitamin B12",
-                "Vitamin B6",
-              ],
-              datasets: [
-                {
-                  label: "Amount (mg)",
-                  data: [500, 75, 15, 15, 120, 2.4, 1.3], // Example daily values
-                  backgroundColor: [
-                    "#FF6384",
-                    "#36A2EB",
-                    "#FFCE56",
-                    "#4BC0C0",
-                    "#9966FF",
-                    "#FF9F40",
-                    "#8BC34A",
+            <script>
+              const ctx = document
+                .getElementById("consumedChart")
+                .getContext("2d");
+              const myChart = new Chart(ctx, {
+                type: "line", // Type of chart
+                data: {
+                  labels: [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
                   ],
-                  borderColor: "#000000",
-                  borderWidth: 1,
-                },
-              ],
-            };
-
-            const config = {
-              type: "bar",
-              data: vitaminData,
-              options: {
-                responsive: true,
-                scales: {
-                  y: {
-                    beginAtZero: true,
-                    title: {
-                      display: true,
-                      text: "Amount (mg)",
+                  datasets: [
+                    {
+                      label: "Calories Consumed per day",
+                      data: [1200, 1900, 300, 500, 200],
+                      borderWidth: 1,
+                      borderColor: "rgb(40, 156, 5)",
                     },
-                  },
+                  ],
                 },
-                plugins: {
-                  legend: {
-                    display: false,
-                  },
-                  tooltip: {
-                    callbacks: {
-                      label: function (context) {
-                        return context.label + ": " + context.raw + " mg";
+                options: {
+                  scales: {
+                    y: {
+                      beginAtZero: true,
+                      title: {
+                        display: true,
+                        text: "Calories Gained",
                       },
                     },
                   },
                 },
-              },
-            };
+              });
+            </script>
+          </div>
 
-            const vitaminChart = new Chart(ctx3, config);
-          </script>
-        </div>
-        <div class="col-md-6">
-          <h4>Nutrition Facts</h4>
-          <canvas id="foodChart" class="mx-auto"></canvas>
+          <div class="col-md-6">
+            <h4>Calories Burned</h4>
+            <canvas id="burnedChart" class="w-100"></canvas>
 
-          <script>
-            const ctx4 = document.getElementById("foodChart").getContext("2d");
-
-            // Example data
-            const labels = ["Carbs", "Fats", "Sugars", "Protein"];
-            const data = [50, 30, 10, 10]; // Example percentages
-
-            new Chart(ctx4, {
-              type: "pie",
-              data: {
-                labels: labels,
-                datasets: [
-                  {
-                    data: data,
-                    backgroundColor: [
-                      "#36A2EB", // Carbs
-                      "#FF6384", // Fats
-                      "#FFCE56", // Sugars
-                      "#4BC0C0", // Protein
-                    ],
-                    borderColor: "#ffffff",
-                    borderWidth: 2,
-                  },
-                ],
-              },
-              options: {
-                responsive: true,
-                plugins: {
-                  tooltip: {
-                    callbacks: {
-                      label: (context) =>
-                        context.label + ": " + context.raw + "%",
+            <script>
+              const ctx2 = document
+                .getElementById("burnedChart")
+                .getContext("2d");
+              const myChart2 = new Chart(ctx2, {
+                type: "line", // Type of chart
+                data: {
+                  labels: [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                  ],
+                  datasets: [
+                    {
+                      label: "Calories Consumed per day",
+                      data: [800, 100, 1700, 1500, 1800],
+                      borderWidth: 1,
+                      borderColor: "rgb(255, 0, 0)",
+                    },
+                  ],
+                },
+                options: {
+                  scales: {
+                    y: {
+                      beginAtZero: true,
+                      title: {
+                        display: true,
+                        text: "Calories Burned",
+                      },
                     },
                   },
                 },
-              },
-            });
-          </script>
+              });
+            </script>
+          </div>
         </div>
-      </div>
-      <div class="row mb-3 g-3">
-        <h4 class="mb-3">Goals</h4>
-        <div class="col-4">
-          <h4>Calories Burned so Far</h4>
-          <canvas id="calChart" class="mx-auto"></canvas>
+        <div class="row mb-3 g-3">
+          <div class="col-md-6">
+            <h4>Vitamin Levels</h4>
+            <canvas id="vitaminChart" class="w-100"></canvas>
 
-          <script>
-            const burned = 350;
-            const goal = 500;
-            const remaining = goal - burned;
+            <script>
+              const ctx3 = document
+                .getElementById("vitaminChart")
+                .getContext("2d");
 
-            // WORKING plugin for Chart.js v4
-            const centerTextPlugin = {
-              id: "centerText",
-              afterDraw(chart) {
-                const { ctx, chartArea } = chart;
-                const { width, height } = chartArea;
-
-                ctx.save();
-                ctx.font = "bold 22px Arial";
-                ctx.fillStyle = "#333";
-                ctx.textAlign = "center";
-                ctx.textBaseline = "middle";
-                ctx.fillText(
-                  `${burned} kcal / ${goal} kcal`,
-                  width / 2,
-                  height / 2
-                );
-                ctx.restore();
-              },
-            };
-
-            const ctx5 = document.getElementById("calChart").getContext("2d");
-
-            new Chart(ctx5, {
-              type: "doughnut",
-              plugins: [centerTextPlugin], // include plugin here
-              data: {
-                labels: ["Burned", "Remaining"],
+              // Example data
+              const vitaminData = {
+                labels: [
+                  "Vitamin A",
+                  "Vitamin C",
+                  "Vitamin D",
+                  "Vitamin E",
+                  "Vitamin K",
+                  "Vitamin B12",
+                  "Vitamin B6",
+                ],
                 datasets: [
                   {
-                    data: [burned, remaining],
-                    backgroundColor: ["#FF6B4A", "#E0E0E0"],
+                    label: "Amount (mg)",
+                    data: [500, 75, 15, 15, 120, 2.4, 1.3], // Example daily values
+                    backgroundColor: [
+                      "#FF6384",
+                      "#36A2EB",
+                      "#FFCE56",
+                      "#4BC0C0",
+                      "#9966FF",
+                      "#FF9F40",
+                      "#8BC34A",
+                    ],
+                    borderColor: "#000000",
                     borderWidth: 1,
                   },
                 ],
-              },
-              options: {
-                responsive: false,
-                cutout: "70%",
-                plugins: {
-                  legend: { display: false },
-                },
-              },
-            });
-          </script>
-        </div>
+              };
 
-        <div class="col-4">
-          <h4 class="mx-auto">Time Worked Out</h4>
-          <canvas id="timeChart" class="mx-auto"></canvas>
-
-          <script>
-            const worked = 25;
-            const goal2 = 60;
-            const remaining2 = goal2 - worked;
-
-            // WORKING plugin for Chart.js v4
-            const centerTextPlugin2 = {
-              id: "centerText",
-              afterDraw(chart) {
-                const { ctx, chartArea } = chart;
-                const { width, height } = chartArea;
-
-                ctx.save();
-                ctx.font = "bold 22px Arial";
-                ctx.fillStyle = "#333";
-                ctx.textAlign = "center";
-                ctx.textBaseline = "middle";
-                ctx.fillText(
-                  `${worked} min / ${goal2} min`,
-                  width / 2,
-                  height / 2
-                );
-                ctx.restore();
-              },
-            };
-
-            const ctx6 = document.getElementById("timeChart").getContext("2d");
-
-            new Chart(ctx6, {
-              type: "doughnut",
-              plugins: [centerTextPlugin2], // include plugin here
-              data: {
-                labels: ["Exercised", "Remaining"],
-                datasets: [
-                  {
-                    data: [worked, remaining2],
-                    backgroundColor: ["#FF6B4A", "#E0E0E0"],
-                    borderWidth: 1,
+              const config = {
+                type: "bar",
+                data: vitaminData,
+                options: {
+                  responsive: true,
+                  scales: {
+                    y: {
+                      beginAtZero: true,
+                      title: {
+                        display: true,
+                        text: "Amount (mg)",
+                      },
+                    },
                   },
-                ],
-              },
-              options: {
-                responsive: false,
-                cutout: "70%",
-                plugins: {
-                  legend: { display: false },
+                  plugins: {
+                    legend: {
+                      display: false,
+                    },
+                    tooltip: {
+                      callbacks: {
+                        label: function (context) {
+                          return context.label + ": " + context.raw + " mg";
+                        },
+                      },
+                    },
+                  },
                 },
-              },
-            });
-          </script>
-        </div>
+              };
 
-        <div class="col-2">
-          <h4>Favorite Recipes</h4>
-          <ul>
-            <li>Lasangna</li>
-            <li>Pasta</li>
-            <li>Fried Rice</li>
-            <li>Burger</li>
-          </ul>
+              const vitaminChart = new Chart(ctx3, config);
+            </script>
+          </div>
+          <div class="col-md-6">
+            <h4>Nutrition Facts</h4>
+            <canvas id="foodChart" class="mx-auto"></canvas>
+
+            <script>
+              const ctx4 = document
+                .getElementById("foodChart")
+                .getContext("2d");
+
+              // Example data
+              const labels = ["Carbs", "Fats", "Sugars", "Protein"];
+              const data = [50, 30, 10, 10]; // Example percentages
+
+              new Chart(ctx4, {
+                type: "pie",
+                data: {
+                  labels: labels,
+                  datasets: [
+                    {
+                      data: data,
+                      backgroundColor: [
+                        "#36A2EB", // Carbs
+                        "#FF6384", // Fats
+                        "#FFCE56", // Sugars
+                        "#4BC0C0", // Protein
+                      ],
+                      borderColor: "#ffffff",
+                      borderWidth: 2,
+                    },
+                  ],
+                },
+                options: {
+                  responsive: true,
+                  plugins: {
+                    tooltip: {
+                      callbacks: {
+                        label: (context) =>
+                          context.label + ": " + context.raw + "%",
+                      },
+                    },
+                  },
+                },
+              });
+            </script>
+          </div>
         </div>
-        <div class="col-2">
-          <h4>Favorite Workouts</h4>
-          <ul>
-            <li>Pilates (Med) (5:00)</li>
-            <li>Cardio (High) (1:30)</li>
-            <li>Yoga (Low) (2:00)</li>
-            <li>Meditation (High) (4:15)</li>
-          </ul>
+        <div class="row mb-3 g-3">
+          <h4 class="mb-3">Goals</h4>
+          <div class="col-4">
+            <h4>Calories Burned so Far</h4>
+            <canvas id="calChart" class="mx-auto"></canvas>
+
+            <script>
+              const burned = 350;
+              const goal = 500;
+              const remaining = goal - burned;
+
+              // WORKING plugin for Chart.js v4
+              const centerTextPlugin = {
+                id: "centerText",
+                afterDraw(chart) {
+                  const { ctx, chartArea } = chart;
+                  const { width, height } = chartArea;
+
+                  ctx.save();
+                  ctx.font = "bold 22px Arial";
+                  ctx.fillStyle = "#333";
+                  ctx.textAlign = "center";
+                  ctx.textBaseline = "middle";
+                  ctx.fillText(
+                    `${burned} kcal / ${goal} kcal`,
+                    width / 2,
+                    height / 2
+                  );
+                  ctx.restore();
+                },
+              };
+
+              const ctx5 = document.getElementById("calChart").getContext("2d");
+
+              new Chart(ctx5, {
+                type: "doughnut",
+                plugins: [centerTextPlugin], // include plugin here
+                data: {
+                  labels: ["Burned", "Remaining"],
+                  datasets: [
+                    {
+                      data: [burned, remaining],
+                      backgroundColor: ["#FF6B4A", "#E0E0E0"],
+                      borderWidth: 1,
+                    },
+                  ],
+                },
+                options: {
+                  responsive: false,
+                  cutout: "70%",
+                  plugins: {
+                    legend: { display: false },
+                  },
+                },
+              });
+            </script>
+          </div>
+
+          <div class="col-4">
+            <h4 class="mx-auto">Time Worked Out</h4>
+            <canvas id="timeChart" class="mx-auto"></canvas>
+
+            <script>
+              const worked = 25;
+              const goal2 = 60;
+              const remaining2 = goal2 - worked;
+
+              // WORKING plugin for Chart.js v4
+              const centerTextPlugin2 = {
+                id: "centerText",
+                afterDraw(chart) {
+                  const { ctx, chartArea } = chart;
+                  const { width, height } = chartArea;
+
+                  ctx.save();
+                  ctx.font = "bold 22px Arial";
+                  ctx.fillStyle = "#333";
+                  ctx.textAlign = "center";
+                  ctx.textBaseline = "middle";
+                  ctx.fillText(
+                    `${worked} min / ${goal2} min`,
+                    width / 2,
+                    height / 2
+                  );
+                  ctx.restore();
+                },
+              };
+
+              const ctx6 = document
+                .getElementById("timeChart")
+                .getContext("2d");
+
+              new Chart(ctx6, {
+                type: "doughnut",
+                plugins: [centerTextPlugin2], // include plugin here
+                data: {
+                  labels: ["Exercised", "Remaining"],
+                  datasets: [
+                    {
+                      data: [worked, remaining2],
+                      backgroundColor: ["#FF6B4A", "#E0E0E0"],
+                      borderWidth: 1,
+                    },
+                  ],
+                },
+                options: {
+                  responsive: false,
+                  cutout: "70%",
+                  plugins: {
+                    legend: { display: false },
+                  },
+                },
+              });
+            </script>
+          </div>
+
+          <div class="col-2">
+            <h4>Favorite Recipes</h4>
+            <ul>
+              <li>Lasangna</li>
+              <li>Pasta</li>
+              <li>Fried Rice</li>
+              <li>Burger</li>
+            </ul>
+          </div>
+          <div class="col-2">
+            <h4>Favorite Workouts</h4>
+            <ul>
+              <li>Pilates (Med) (5:00)</li>
+              <li>Cardio (High) (1:30)</li>
+              <li>Yoga (Low) (2:00)</li>
+              <li>Meditation (High) (4:15)</li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
+    </main>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
