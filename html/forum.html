@@ -9,12 +9,13 @@
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="/static/index.css" />
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-body-primary">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#"><img src="/static/assets/logo.png" alt="Logo of Diet Buddy"
+          /></a>
         <button
           class="navbar-toggler"
           type="button"
@@ -29,21 +30,20 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
+              <a class="nav-link" href="/index">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#"
-                >Recipies</a
-              >
+              <a class="nav-link" href="/recipies">Recipes</a>
+          
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="workout.html">Calories Counter</a>
+              <a class="nav-link" href="/workout">Workouts</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Forum</a>
+              <a class="nav-link active" aria-current="page" href="#">Forum</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Login</a>
+              <a class="nav-link" href="/login">Login</a>
             </li>
             <!--
             <li class="nav-item dropdown">
@@ -85,33 +85,50 @@
       </div>
     </nav>
     <div class="container-fluid w-100 bg-primary p-0">
-      <img src="recipe.png" alt="Banner" class="img-fluid" />
+      <img src="/static/assets/forum.png" alt="Forum: Chat with other buddies" class="img-fluid" />
     </div>
 
-    <h1>Recipies</h1>
+    <h1>Forum</h1>
+    
+    <p>Connect with other diet buddies!</p>
 
-    <div class="container d-flex flex-row">
-      <form action="" class="w-50 m-2">
-        <div class="row g-2">
-          <label for="restric">Dietary Restrictions: </label>
-          <input type="text" name="restric" />
-          <label for="fridge">Ingredients: </label>
-          <input type="text" name="fridge" />
-          <label for="genre">Genre: </label>
-          <input type="text" name="genre" />
-          <label for="servigns"># of Servings: </label>
-          <input type="number" name="servings" min="0" />
-        </div>
-      </form>
-      <div class="m-2">
-        <div class="d-flex flex-row">
-          <h3 class="mx-1">Recipe</h3>
-          <button class="mx-1 btn btn-primary">Download</button>
-          <button class="mx-1 btn btn-primary">Generate Another Recipe</button>
-        </div>
-        <div class="recipe-result"></div>
+    
+    <div class="container">
+      <div class="new-post">
+      <h4>Create New Post</h4>
+      <textarea placeholder="Write something..."></textarea>
+      <button class="submit-btn">Post</button>
       </div>
-    </div>
+      
+      
+      <div class="post-box">
+      <div class="post-header">
+      <span class="username">User123</span>
+      <span class="time">2 hours ago</span>
+      </div>
+      <div class="post-content">I am an 83 year old woman with chronic arthritis. Thank you for making this easily navigatable site so that I can live out my fitness dreams and reach my goals all in one spot. My grandchildren and I also enjoy following Diet Buddy's low impact exercises together. </div>
+      <button class="reply-btn">Reply</button>
+      </div>
+      
+      
+      <div class="post-box">
+      <div class="post-header">
+      <span class="username">CoolDude</span>
+      <span class="time">1 day ago</span>
+      </div>
+      <div class="post-content">Hi, I am a pescatarian M37. I've replaced my personal trainer with Diet Buddy. Since joining, I have seen immense gains. I particularly like the custom vegetarian lasagna recipes, and how the recipe generator helps me reduce waste. </div>
+      <button class="reply-btn">Reply</button>
+      </div>
+      <div class="post-box">
+        <div class="post-header">
+        <span class="username">CoolGal</span>
+        <span class="time">4 days ago</span>
+        </div>
+        <div class="post-content"> My fiancé and I met on Diet Buddy, thanks!</div>
+        <button class="reply-btn">Reply</button>
+        </div>
+      </div>
+      
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"

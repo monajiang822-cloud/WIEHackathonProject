@@ -60,4 +60,92 @@ form {
   select:focus {
     border-color: #4A90E2;
   }
-  
+  .post-box {
+    color: #777;
+    font-size: 14px;
+    }
+    
+    
+    .post-content {
+    font-size: 16px;
+    line-height: 1.4;
+    color: #444;
+    margin-bottom: 10px;
+    }
+    
+    
+    .reply-btn {
+    background: #1d7744;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.2s;
+    margin-bottom: 20px;
+    }
+    
+    
+    .reply-btn:hover {
+    background: lightgreen;
+    }
+    
+    
+    .new-post {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    margin-bottom: 35px;
+    }
+    
+    
+    textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    resize: vertical;
+    margin-bottom: 30px;
+    }
+    
+    
+    .submit-btn {
+    background: #1d7744;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.2s;
+    }
+    
+    
+    .submit-btn:hover {
+    background: #57a94b;
+    }
+
+    p {
+        margin-top: 30px;
+        padding-left: 100px;
+        font-family: Courier, monospace;
+        font-size: 20px;
+      }
+
+    h4{
+        font-family: Courier, monospace;
+        font-size: 20px;
+    }
+
+  #foodChart {
+    width: 300px !important;
+    height: 300px !important;
+  }
+
+  #calChart {
+    width: 300px !important;
+    height: 300px !important;
+  }

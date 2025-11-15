@@ -9,12 +9,26 @@
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="/static/index.css" />
+    <title>Recipies - Diet Buddy</title>
+    <style>
+    .workout-result {
+      height: 400px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      background-color: #f8f9fa;
+      padding: 15px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }
+  </style>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-body-primary">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="/">
+          <img src="/static/assets/logo.png" alt="Logo" height="40"/>
+        </a>
         <button
           class="navbar-toggler"
           type="button"
@@ -28,89 +42,48 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#"
-                >Recipies</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="workout.html">Workouts</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="workout.html">Forum</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="login.html">Login</a>
-            </li>
-            
-            <!--
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Dropdown
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider" /></li>
-                <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-            </li>
-        -->
+            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Recipies</a></li>
+            <li class="nav-item"><a class="nav-link" href="/workout">Workouts</a></li>
+            <li class="nav-item"><a class="nav-link" href="forum.html">Forum</a></li>
+            <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
           </ul>
-          <form class="d-flex" role="search">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-success" type="submit">
-              Search
-            </button>
-          </form>
         </div>
       </div>
     </nav>
-    <div class="container-fluid w-100 bg-primary p-0">
-      <img src="assets/recipe.png" alt="Banner" class="img-fluid" />
+
+    <div class="container-fluid p-0">
+      <img src="/static/assets/recipe.png" alt="Recipe Banner" class="img-fluid w-100" />
     </div>
 
-    <h1>Recipies</h1>
+    <h1 class="mt-4 text-center">Recipies</h1>
 
-    <div class="container d-flex flex-row">
-      <form action="" class="col-6 m-2">
+    <div class="container d-flex flex-row flex-wrap mt-3">
+      <!-- Form to generate recipe -->
+      <form action="/recipies" method="post" class="col-md-6 m-2">
         <div class="row g-2">
-          <label for="restric">Dietary Restrictions: </label>
-          <input type="text" name="restric" />
-          <label for="fridge">Ingredients: </label>
-          <input type="text" name="fridge" />
-          <label for="genre">Genre: </label>
-          <input type="text" name="genre" />
-          <label for="servigns"># of Servings: </label>
-          <input type="number" name="servings" min="0" />
+          <label for="restric">Dietary Restrictions:</label>
+          <input type="text" name="restric" class="form-control" placeholder="e.g., vegetarian, gluten-free" />
+          <label for="fridge">Ingredients you have:</label>
+          <input type="text" name="fridge" class="form-control" placeholder="e.g., chicken, broccoli" />
+          <label for="genre">Cuisine/Genre:</label>
+          <input type="text" name="genre" class="form-control" placeholder="e.g., Italian, Indian" />
+          <label for="servings"># of Servings:</label>
+          <input type="number" name="servings" min="1" class="form-control" value="1" />
         </div>
+        <button type="submit" class="btn btn-primary mt-3">Generate Recipe</button>
       </form>
+
+      <!-- Display GPT response -->
       <div class="col m-2">
-        <div class="d-flex flex-row">
-          <h3 class="mx-1">Recipe</h3>
-          <button class="mx-1 btn btn-primary">Download</button>
-          <button class="mx-1 btn btn-primary">Generate Another Recipe</button>
+        <h3>Recipe Result</h3>
+        <div class="workout-result p-3 bg-light border rounded">
+          {% if gpt_response %}
+            </pre>{{ gpt_response }}</pre>
+          {% else %}
+            <p class="text-muted">Your recipe will appear here after you click "Generate Recipe".</p>
+          {% endif %}
         </div>
-        <div class="recipe-result"></div>
       </div>
     </div>
 
