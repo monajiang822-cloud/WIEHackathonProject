@@ -40,7 +40,7 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Login</a>
+              <a class="nav-link" href="login.html">Login</a>
             </li>
             <!--
             <li class="nav-item dropdown">
@@ -82,7 +82,7 @@
       </div>
     </nav>
     <div class="container-fluid w-100 bg-primary p-0">
-      <img src="workout.png" alt="Banner" class="img-fluid" />
+      <img src="assets/workout.png" alt="Banner" class="img-fluid" />
     </div>
 
     <h1>Workout</h1>
@@ -132,7 +132,12 @@
             </select>
 
             <label for="time">Timer: </label>
-            <input type="time" name="time" />
+            <input
+              type="text"
+              name="time"
+              pattern="[0-9]{1,2}:[0-9]{2}"
+              placeholder="eg. mm:ss"
+            />
           </div>
         </form>
         <div class="col m-2">
@@ -140,7 +145,7 @@
             <h3 class="mx-1">Workout</h3>
             <button class="mx-1 btn btn-primary">Download</button>
             <button class="mx-1 btn btn-primary">
-              Generate Another Recipe
+              Generate Another Workout
             </button>
           </div>
           <div class="workout-result"></div>
